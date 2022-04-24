@@ -3,8 +3,11 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import Web3Modal from "web3modal";
 
-const marketplaceAddress = process.env.MARKETPLACE_ADDRESS
-
+// const marketplaceAddress = process.env.MARKETPLACE_ADDRESS
+import {
+    marketplaceAddress
+  } from '../config'
+  
 import NFTMarketplace from "../artifacts/contracts/NFTMarketplace.sol/NFTMarketplace.json";
 
 export default function CreatorDashboard() {

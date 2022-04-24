@@ -4,8 +4,11 @@ import axios from 'axios'
 import Web3Modal from 'web3modal'
 
 import NFTMarketplace from '../artifacts/contracts/NFTMarketplace.sol/NFTMarketplace.json'
-
-const marketplaceAddress = process.env.MARKETPLACE_ADDRESS
+import {
+    marketplaceAddress
+  } from '../config'
+  
+// const marketplaceAddress = process.env.MARKETPLACE_ADDRESS
 
 export default function Home() {
   const [nfts, setNfts] = useState([])

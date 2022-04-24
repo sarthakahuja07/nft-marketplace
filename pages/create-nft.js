@@ -5,8 +5,11 @@ import { useRouter } from "next/router";
 import Web3Modal from "web3modal";
 
 const client = ipfsHttpClient("https://ipfs.infura.io:5001/api/v0");
-
-const marketplaceAddress = process.env.MARKETPLACE_ADDRESS;
+import {
+    marketplaceAddress
+  } from '../config'
+  
+// const marketplaceAddress = process.env.MARKETPLACE_ADDRESS;
 
 import NFTMarketplace from "../artifacts/contracts/NFTMarketplace.sol/NFTMarketplace.json";
 
