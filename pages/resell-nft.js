@@ -3,11 +3,8 @@ import { ethers } from "ethers";
 import { useRouter } from "next/router";
 import axios from "axios";
 import Web3Modal from "web3modal";
-import {
-    marketplaceAddress
-  } from '../config'
-  
-// const marketplaceAddress = process.env.MARKETPLACE_ADDRESS
+const marketplaceAddress = process.env.NEXT_PUBLIC_MARKETPLACE_ADDRESS;
+
 
 import NFTMarketplace from "../artifacts/contracts/NFTMarketplace.sol/NFTMarketplace.json";
 
