@@ -5,7 +5,9 @@ import { ThemeProvider } from "@mui/material/styles";
 import theme from "../themes";
 
 function MyApp({ Component, pageProps }) {
-	return (
+    const getLayout = Component.getLayout || ((page) => page)
+
+	return getLayout(
 		<>
 			<ThemeProvider theme={theme}>
 				<Layout>

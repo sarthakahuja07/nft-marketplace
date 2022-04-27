@@ -4,16 +4,19 @@ const theme = createTheme({
 	palette: {
 		mode: "dark",
 		background: {
-			default: "#2B2C50",
-			paper: "#2B2C50"
+			default: "#0A1929",
+			paper: "#0A1929"
 		},
 		primary: {
 			main: "#5B68DF",
-            light: "#73E0A9",
+			light: "#73E0A9"
+		},
+		bg: {
+			main: "#0A1929"
 		},
 		secondary: {
 			main: "#F72DB1",
-            light: "#FB95D7",
+			light: "#FB95D7"
 		},
 		white: {
 			main: "#ffffff"
@@ -31,7 +34,7 @@ const theme = createTheme({
 		MuiLink: {
 			styleOverrides: {
 				root: {
-					textDecoration: "none",
+					textDecoration: "none"
 					// "&:hover": {
 					// 	color: "#fff"
 					// }
@@ -68,7 +71,7 @@ const theme = createTheme({
 		h5: {
 			fontFamily: "Montserrat",
 			fontSize: "1.6rem",
-			fontWeight: 600,
+			fontWeight: 600
 		},
 		h4: {
 			fontSize: "2rem",
@@ -101,7 +104,7 @@ const theme = createTheme({
 		},
 		overline: {
 			fontFamily: "DM Sans"
-		},
+		}
 	},
 	shape: {
 		borderRadius: 8
