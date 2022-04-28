@@ -1,85 +1,236 @@
-import { Box, Stack, Typography } from "@mui/material";
+import { Box, Stack, Typography, Grid } from "@mui/material";
 import Link from "next/link";
+import { useTheme } from "@mui/material/styles";
 
 const FooterLinks = () => {
+	const theme = useTheme();
+
 	return (
 		<Box
 			sx={{
-				maxWidth: "fit-content",
-				mx: {
-					sm: "auto"
-				}
+				display: "flex",
+				flexDirection: "row",
+				justifyContent: ["space-between", "space-around"],
+				width: "100%"
 			}}
 		>
-			<Typography variant="h5" mb={3}>
-				Quick Links
-			</Typography>
-			<Stack direction="column" justifyContent="center">
-				<Link href="/pooja">
-					<Typography
-						variant="body1"
-						color="inherit"
-						sx={{ "&:hover": { textDecoration: "underline" } }}
-					>
-						Pooja Appliances
-					</Typography>
-				</Link>
-				<Link href="/creative">
-					<Typography
-						variant="body1"
-						color="inherit"
-						sx={{ "&:hover": { textDecoration: "underline" } }}
-					>
-						Creative Appliances
-					</Typography>
-				</Link>
-				<Link href="/">
-					<Typography
-						variant="body1"
-						color="inherit"
-						sx={{ "&:hover": { textDecoration: "underline" } }}
-					>
-						Home
-					</Typography>
-				</Link>
+			<Box>
+				<Typography
+					variant="body1"
+					mb={2}
+					sx={{
+						fontWeight: "bolder",
+						background: `linear-gradient(90.71deg, ${theme.palette.secondary.main} 0%, ${theme.palette.primary.main} 50%)`,
+						WebkitBackgroundClip: "text",
+						backgrounClip: `text`,
+						textFillColor: `transparent`
+					}}
+				>
+					Market Place
+				</Typography>
+				<Stack direction="column" justifyContent="center">
+					<Link href="/">
+						<a>
+							<Typography
+								variant="body2"
+								mb={1}
+								color="inherit"
+								sx={{ "&:hover": { textDecoration: "underline" } }}
+							>
+								All NFTs
+							</Typography>
+						</a>
+					</Link>
+					<Link href="/">
+						<a>
+							<Typography
+								mb={1}
+								variant="body2"
+								color="inherit"
+								sx={{ "&:hover": { textDecoration: "underline" } }}
+							>
+								Art
+							</Typography>
+						</a>
+					</Link>
+					<Link href="/">
+						<a>
+							<Typography
+								mb={1}
+								variant="body2"
+								color="inherit"
+								sx={{ "&:hover": { textDecoration: "underline" } }}
+							>
+								Sports
+							</Typography>
+						</a>
+					</Link>
 
-				<Link href="/">
-					<Typography
-						variant="body1"
-						color="inherit"
-						sx={{ "&:hover": { textDecoration: "underline" } }}
-					>
-						Categories
-					</Typography>
-				</Link>
-				<Link href="/">
-					<Typography
-						variant="body1"
-						color="inherit"
-						sx={{ "&:hover": { textDecoration: "underline" } }}
-					>
-						Products
-					</Typography>
-				</Link>
-				<Link href="/">
-					<Typography
-						variant="body1"
-						color="inherit"
-						sx={{ "&:hover": { textDecoration: "underline" } }}
-					>
-						Cart
-					</Typography>
-				</Link>
-				<Link href="/">
-					<Typography
-						variant="body1"
-						color="inherit"
-						sx={{ "&:hover": { textDecoration: "underline" } }}
-					>
-						Login
-					</Typography>
-				</Link>
-			</Stack>
+					<Link href="/">
+						<a>
+							<Typography
+								mb={1}
+								variant="body2"
+								color="inherit"
+								sx={{ "&:hover": { textDecoration: "underline" } }}
+							>
+								Music
+							</Typography>
+						</a>
+					</Link>
+					<Link href="/">
+						<a>
+							<Typography
+								mb={1}
+								variant="body2"
+								color="inherit"
+								sx={{ "&:hover": { textDecoration: "underline" } }}
+							>
+								Anime
+							</Typography>
+						</a>
+					</Link>
+					<Link href="/">
+						<a>
+							<Typography
+								variant="body2"
+								mb={1}
+								color="inherit"
+								sx={{ "&:hover": { textDecoration: "underline" } }}
+							>
+								Games
+							</Typography>
+						</a>
+					</Link>
+					<Link href="/">
+						<a>
+							<Typography
+								mb={1}
+								variant="body2"
+								color="inherit"
+								sx={{ "&:hover": { textDecoration: "underline" } }}
+							>
+								Photography
+							</Typography>
+						</a>
+					</Link>
+					<Link href="/">
+						<a>
+							<Typography
+								mb={1}
+								variant="body2"
+								color="inherit"
+								sx={{ "&:hover": { textDecoration: "underline" } }}
+							>
+								Trading Cards
+							</Typography>
+						</a>
+					</Link>
+				</Stack>
+			</Box>
+
+			<Box>
+				<Typography
+					variant="body1"
+					mb={2}
+					sx={{
+						fontWeight: "bolder",
+						background: `linear-gradient(90.71deg, ${theme.palette.secondary.main} 0%, ${theme.palette.primary.main} 50%)`,
+						WebkitBackgroundClip: "text",
+						backgrounClip: `text`,
+						textFillColor: `transparent`
+					}}
+				>
+					Quick Links
+				</Typography>
+				<Stack direction="column" justifyContent="center">
+					<Link href="/">
+						<a>
+							<Typography
+								variant="body2"
+								mb={1}
+								color="inherit"
+								sx={{ "&:hover": { textDecoration: "underline" } }}
+							>
+								Explore
+							</Typography>
+						</a>
+					</Link>
+					<Link href="/">
+						<a>
+							<Typography
+								mb={1}
+								variant="body2"
+								color="inherit"
+								sx={{ "&:hover": { textDecoration: "underline" } }}
+							>
+								Create
+							</Typography>
+						</a>
+					</Link>
+					<Link href="/">
+						<a>
+							<Typography
+								mb={1}
+								variant="body2"
+								color="inherit"
+								sx={{ "&:hover": { textDecoration: "underline" } }}
+							>
+								Dashboard
+							</Typography>
+						</a>
+					</Link>
+
+					<Link href="/">
+						<a>
+							<Typography
+								mb={1}
+								variant="body2"
+								color="inherit"
+								sx={{ "&:hover": { textDecoration: "underline" } }}
+							>
+								My NFT's
+							</Typography>
+						</a>
+					</Link>
+					<Link href="/">
+						<a>
+							<Typography
+								mb={1}
+								variant="body2"
+								color="inherit"
+								sx={{ "&:hover": { textDecoration: "underline" } }}
+							>
+								About
+							</Typography>
+						</a>
+					</Link>
+					<Link href="/">
+						<a>
+							<Typography
+								variant="body2"
+								mb={1}
+								color="inherit"
+								sx={{ "&:hover": { textDecoration: "underline" } }}
+							>
+								Profile
+							</Typography>
+						</a>
+					</Link>
+					<Link href="/">
+						<a>
+							<Typography
+								mb={1}
+								variant="body2"
+								color="inherit"
+								sx={{ "&:hover": { textDecoration: "underline" } }}
+							>
+								Blog
+							</Typography>
+						</a>
+					</Link>
+				</Stack>
+			</Box>
 		</Box>
 	);
 };

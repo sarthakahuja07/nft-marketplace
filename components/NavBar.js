@@ -112,11 +112,14 @@ const NavBar = (props) => {
 											sx={{
 												display: "flex",
 												alignItems: "center",
-												justifyContent: "center"
+												justifyContent: "center",
+												mr: 2,
+												display: { xs: "none", md: "flex" },
+												ml: 1
 											}}
 										>
-											<Image src="/logo.png" width={50} height={50} />
-											<Typography
+											<Image src="/logo.svg" width={40} height={40} />
+											{/* <Typography
 												variant="h6"
 												noWrap
 												component="div"
@@ -127,7 +130,7 @@ const NavBar = (props) => {
 												}}
 											>
 												WAGMI
-											</Typography>
+											</Typography> */}
 										</Box>
 									</a>
 								</Link>
@@ -181,14 +184,22 @@ const NavBar = (props) => {
 										</MenuItem>
 									</Menu>
 								</Box>
-								<Typography
+								<Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
+									<Link href="/">
+										<a>
+											<Image src="/logo.svg" width={40} height={40} />
+										</a>
+									</Link>
+								</Box>
+
+								{/* <Typography
 									variant="h6"
 									noWrap
 									component="div"
 									sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}
 								>
 									WAGMI
-								</Typography>
+								</Typography> */}
 
 								<Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
 									{pages.map((page) => (

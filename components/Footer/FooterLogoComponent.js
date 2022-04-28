@@ -5,15 +5,13 @@ import FacebookRoundedIcon from "@mui/icons-material/FacebookRounded";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import TwitterIcon from "@mui/icons-material/Twitter";
 import Link from "next/link";
-import { useTheme } from "@mui/material/styles";
 
 const FooterLogoComponent = () => {
-	const theme = useTheme();
 	return (
 		<>
 			<Box sx={{ display: "flex", flexDirection: "column" }}>
 				<Box sx={{ mb: 2 }}>
-					<Image src="/logo.png" height={70} width={70} />
+					<Image src="/logo.svg" height={60} width={60} />
 					<Typography variant="body1" sx={{ fontWeight: "bolder" }}>
 						WAGMI
 					</Typography>
@@ -48,7 +46,7 @@ const FooterLogoComponent = () => {
 						</Link>
 					</Box>
 					<Typography variant="caption">
-						© 2022 Creative Appliances All Rights Reserved
+						© 2022 WAGMI All Rights Reserved
 					</Typography>
 				</Box>
 			</Box>
