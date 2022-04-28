@@ -8,8 +8,8 @@ const theme = createTheme({
 			paper: "#0A1929"
 		},
 		primary: {
-			main: "#5B68DF",
-			light: "#73E0A9"
+			main: "#5E83D2",
+			// light: "#73E0A9"
 		},
 		bg: {
 			main: "#0A1929"
@@ -66,7 +66,7 @@ const theme = createTheme({
 		},
 		h6: {
 			fontFamily: "Montserrat",
-			fontWeight: 600
+			fontSize: "1.125rem"
 		},
 		h5: {
 			fontFamily: "Montserrat",
@@ -100,7 +100,7 @@ const theme = createTheme({
 		},
 		caption: {
 			fontFamily: "DM Sans",
-			color: "#575757"
+			color: 'rgba(255,255,255,0.5)'
 		},
 		overline: {
 			fontFamily: "DM Sans"

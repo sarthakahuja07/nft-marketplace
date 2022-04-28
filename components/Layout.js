@@ -1,4 +1,4 @@
-import Footer from "./Footer";
+import Footer from "./Footer/index";
 import NavBar from "./NavBar";
 
 const Layout = ({ children }) => {

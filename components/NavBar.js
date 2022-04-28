@@ -16,6 +16,7 @@ import { useRouter } from "next/router";
 import Image from "next/image";
 import SearchIcon from "@mui/icons-material/Search";
 import AppBar from "@mui/material/AppBar";
+import Link from "next/link";
 import { styled, alpha } from "@mui/system";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { useTheme } from "@mui/material/styles";
@@ -69,7 +70,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 }));
 
 const NavBar = (props) => {
-	const isAuthenticated = true;
+	const isAuthenticated = false;
 	const router = useRouter();
 	const isHome = router.pathname === "/";
 	const theme = useTheme();
@@ -105,14 +106,32 @@ const NavBar = (props) => {
 					>
 						<Container maxWidth="lg">
 							<Toolbar>
-								<Typography
-									variant="h6"
-									noWrap
-									component="div"
-									sx={{ mr: 2, display: { xs: "none", md: "flex" } }}
-								>
-									WAGMI
-								</Typography>
+								<Link href="/">
+									<a>
+										<Box
+											sx={{
+												display: "flex",
+												alignItems: "center",
+												justifyContent: "center"
+											}}
+										>
+											<Image src="/logo.png" width={50} height={50} />
+											<Typography
+												variant="h6"
+												noWrap
+												component="div"
+												sx={{
+													mr: 2,
+													display: { xs: "none", md: "flex" },
+													ml: 1
+												}}
+											>
+												WAGMI
+											</Typography>
+										</Box>
+									</a>
+								</Link>
+
 								<Search sx={{ display: { xs: "none", md: "flex" } }}>
 									<SearchIconWrapper>
 										<SearchIcon color="secondary" />
@@ -223,7 +242,7 @@ const NavBar = (props) => {
 												}}
 											>
 												{/* <IconButton onClick={handleOpenUserMenu}> */}
-													<AccountBalanceWalletIcon sx={{ mr: [0, 0, 1] }} />
+												<AccountBalanceWalletIcon />
 												{/* </IconButton> */}
 												<Menu
 													sx={{ mt: "45px" }}
@@ -261,6 +280,7 @@ const NavBar = (props) => {
 												my: 2,
 												display: "block",
 												width: "100%",
+												borderRadius: 5,
 												background: (theme) =>
 													`linear-gradient(90.71deg, ${theme.palette.secondary.main} 0%, ${theme.palette.primary.main} 100%)`
 											}}
