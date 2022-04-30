@@ -175,21 +175,29 @@ const NavBar = (props) => {
 									>
 										{pages.map((page) => {
 											return (
-												<MenuItem
-													key={page}
-													onClick={handleCloseNavMenu}
-													className={
-														router.asPath == "/" + page.toLowerCase()
-															? "navActive"
-															: ""
-													}
-												>
-													<Typography textAlign="center">{page}</Typography>
+												<MenuItem key={page} onClick={handleCloseNavMenu}>
+													<Typography
+														color={
+															router.asPath == "/" + page.toLowerCase()
+																? "secondary"
+																: "white"
+														}
+														textAlign="center"
+													>
+														{page}
+													</Typography>
 												</MenuItem>
 											);
 										})}
 										<MenuItem key={"account"} onClick={handleCloseNavMenu}>
-											Account
+											<Typography
+												color={
+													router.asPath == "/account" ? "secondary" : "white"
+												}
+												textAlign="center"
+											>
+												Account
+											</Typography>
 										</MenuItem>
 									</Menu>
 								</Box>
@@ -242,9 +250,7 @@ const NavBar = (props) => {
 											backgroundImage: `linear-gradient(${theme.palette.bg.main},${theme.palette.bg.main}), radial-gradient(circle at top left, ${theme.palette.secondary.main},${theme.palette.primary.main})`
 										}}
 									>
-										<Box sx={{ padding: 0.5, paddingX: 1 }}>
-											Account
-										</Box>
+										<Box sx={{ padding: 0.5, paddingX: 1 }}>Account</Box>
 									</Button>
 								</Box>
 

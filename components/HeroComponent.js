@@ -13,10 +13,11 @@ const HeroComponent = () => {
 			<Box
 				sx={{
 					position: "relative",
+                    mb:[6,12],
 					"&::before": {
 						content: '""',
 						position: "absolute",
-                        top: -120,
+						top: -120,
 						width: "100%",
 						height: `calc(120px + 100%)`,
 						backgroundImage: 'url("/hero-bg.png")',
@@ -106,10 +107,10 @@ const HeroComponent = () => {
 						</Link>
 					</Box>
 				</Container>
-				<Container maxWidth="lg">
-					<HeroContent />
-				</Container>
 			</Box>
+			<Container maxWidth="lg">
+				<HeroContent />
+			</Container>
 		</>
 	);
 };
