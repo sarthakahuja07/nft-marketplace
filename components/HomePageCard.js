@@ -6,8 +6,8 @@ import {
 	CardActions,
 	Button,
 	Box,
-	Link
 } from "@mui/material";
+import Link from 'next/link'
 
 import LinkArrow from "../public/linkArrow.svg";
 
@@ -51,7 +51,7 @@ const HomePageCard = () => {
 						>
 							ATHENA
 						</Typography>
-						<Link href="details">
+						<Link href="/details">
 							<a>
 								<LinkArrow />
 							</a>

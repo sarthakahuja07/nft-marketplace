@@ -13,7 +13,7 @@ const HeroComponent = () => {
 			<Box
 				sx={{
 					position: "relative",
-                    mb:[6,12],
+					mb: [10, 14],
 					"&::before": {
 						content: '""',
 						position: "absolute",
