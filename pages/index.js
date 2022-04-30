@@ -1,7 +1,10 @@
 import Typography from "@mui/material/Typography";
+import HeroComponent from "../components/HeroComponent";
 export default function Home() {
 	return (
 		<>
+			<HeroComponent />
+
 			<Typography variant="h1">Home page</Typography>
 			{[...new Array(42)]
 				.map(

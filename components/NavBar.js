@@ -22,7 +22,6 @@ import useMediaQuery from "@mui/material/useMediaQuery";
 import { useTheme } from "@mui/material/styles";
 import Menu from "@mui/material/Menu";
 import MenuIcon from "@mui/icons-material/Menu";
-import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 
 const Offset = styled("div")(({ theme }) => theme.mixins.toolbar);
@@ -174,11 +173,21 @@ const NavBar = (props) => {
 											display: { xs: "block", md: "none" }
 										}}
 									>
-										{pages.map((page) => (
-											<MenuItem key={page} onClick={handleCloseNavMenu}>
-												<Typography textAlign="center">{page}</Typography>
-											</MenuItem>
-										))}
+										{pages.map((page) => {
+											return (
+												<MenuItem
+													key={page}
+													onClick={handleCloseNavMenu}
+													className={
+														router.asPath == "/" + page.toLowerCase()
+															? "navActive"
+															: ""
+													}
+												>
+													<Typography textAlign="center">{page}</Typography>
+												</MenuItem>
+											);
+										})}
 										<MenuItem key={"account"} onClick={handleCloseNavMenu}>
 											Account
 										</MenuItem>
@@ -206,8 +215,12 @@ const NavBar = (props) => {
 										<Button
 											key={page}
 											onClick={handleCloseNavMenu}
-											color="white"
-											sx={{ my: 2, display: "block" }}
+											color={
+												router.asPath == "/" + page.toLowerCase()
+													? "secondary"
+													: "white"
+											}
+											sx={{ my: 2, display: "block", fontWeight: "bold" }}
 										>
 											{page}
 										</Button>
@@ -229,7 +242,9 @@ const NavBar = (props) => {
 											backgroundImage: `linear-gradient(${theme.palette.bg.main},${theme.palette.bg.main}), radial-gradient(circle at top left, ${theme.palette.secondary.main},${theme.palette.primary.main})`
 										}}
 									>
-										<Box sx={{ padding: 0.5, paddingX: 1 }}>Account</Box>
+										<Box sx={{ padding: 0.5, paddingX: 1 }}>
+											Account
+										</Box>
 									</Button>
 								</Box>
 
@@ -313,7 +328,7 @@ const NavBar = (props) => {
 						</Container>
 					</AppBar>
 				</ColorScroll>
-				<Offset />
+				{isHome && <Offset />}
 			</Box>
 		</>
 	);

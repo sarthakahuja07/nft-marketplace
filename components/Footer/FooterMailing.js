@@ -15,7 +15,7 @@ const FooterMailing = () => {
 					WebkitBackgroundClip: "text",
 					backgrounClip: `text`,
 					textFillColor: `transparent`,
-					mb: 2
+					mb: 2,                    
 				}}
 			>
 				Stay in the loop
