@@ -28,6 +28,32 @@ const HeroComponent = () => {
 					}
 				}}
 			>
+                    {/* BG COLORED FILTER */}
+				<Box
+					sx={{
+						position: "absolute",
+						left: "6.81%",
+						right: "23.82%",
+						top: "9.91%",
+						bottom: "67.62%",
+						background: "#F72DB1",
+						opacity: "0.8",
+						filter: " blur(509px)"
+					}}
+				></Box>
+				<Box
+					sx={{
+						position: "absolute",
+						left: "37.22%",
+						right: "3.82%",
+						top: "-0.93%",
+						bottom: "81.83%",
+						background: "#5E83D2",
+						opacity: "1",
+						filter: " blur(509px)"
+					}}
+				></Box>
+
 				<Container maxWidth="lg">
 					<Box
 						sx={{
@@ -108,9 +134,13 @@ const HeroComponent = () => {
 					</Box>
 				</Container>
 			</Box>
-			<Container maxWidth="lg" sx={{
-                mb:[6,8,16]
-            }}>
+			<Container
+				maxWidth="lg"
+				id="hero-content"
+				sx={{
+					mb: [6, 8, 16]
+				}}
+			>
 				<HeroContent />
 			</Container>
 		</>

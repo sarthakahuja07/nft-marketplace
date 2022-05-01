@@ -13,7 +13,7 @@ const BannerComponent = () => {
 					py: 10,
 					px: 8,
 					my: 8,
-					background: "rgba(0,0,0,0.1)",
+					background: "rgba(0,0,0,0.1)"
 				}}
 			>
 				<Typography variant="h3" fontWeight="bold" marginBottom={10}>

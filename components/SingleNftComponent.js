@@ -6,7 +6,8 @@ import {
 	Grid,
 	CardContent,
 	Avatar,
-	Typography
+	Typography,
+	CardActions
 } from "@mui/material";
 import Link from "next/link";
 import ETH from "../public/eth.svg";
@@ -16,19 +17,19 @@ const SingleNftComponent = ({ id, title, price, creator, image }) => {
 	return (
 		<>
 			<Grid item xs={12} sm={6} md={3}>
-				<Link href={`/nft/${id}`}>
-					<a>
-						<Card
-							raised
-							sx={{
-								maxWidth: "300px",
-								mx: "auto",
-								borderRadius: 2,
-								padding: 1.5,
-								position: "relative",
-								minWidth: "200px"
-							}}
-						>
+				<Card
+					raised
+					sx={{
+						maxWidth: "300px",
+						mx: "auto",
+						borderRadius: 2,
+						padding: 1.5,
+						position: "relative",
+						minWidth: "200px"
+					}}
+				>
+					<Link href={`/nft/${id}`}>
+						<a>
 							<CardActionArea>
 								<CardMedia
 									component="img"
@@ -104,23 +105,29 @@ const SingleNftComponent = ({ id, title, price, creator, image }) => {
 											{price}
 										</Typography>
 									</Box>
-									<Box
-										sx={{
-											px: 3,
-											py: 1.5
-										}}
-									>
-										<ColoredBgButton sx={{
-                                            width: "100%",
-                                        }}>
-											Buy Now
-										</ColoredBgButton>
-									</Box>
 								</CardContent>
 							</CardActionArea>
-						</Card>
-					</a>
-				</Link>
+						</a>
+					</Link>
+					<CardActions>
+						<Box
+							sx={{
+								px: 3,
+								py: 1.5,
+								width: "100%"
+							}}
+						>
+							<ColoredBgButton
+								sx={{
+									width: "100%",
+									py: 1.5
+								}}
+							>
+								Buy Now
+							</ColoredBgButton>
+						</Box>
+					</CardActions>
+				</Card>
 			</Grid>
 		</>
 	);

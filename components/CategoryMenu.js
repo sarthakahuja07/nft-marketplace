@@ -122,7 +122,7 @@ const CategoryMenu = () => {
 						value={value}
 						onChange={handleChange}
 						aria-label="basic tabs example"
-						textColor="white"
+						textColor="primary"
 						indicatorColor="secondary"
 						variant="scrollable"
 						selectionFollowsFocus
@@ -134,6 +134,7 @@ const CategoryMenu = () => {
 					>
 						{categories.map((category, index) => (
 							<Tab
+                                key={index}
 								disableRipple
 								label={category}
 								{...a11yProps(index)}
@@ -153,8 +154,9 @@ const CategoryMenu = () => {
 									},
 									"&.Mui-selected": {
 										background: (theme) =>
-											`linear-gradient(90.71deg, ${theme.palette.secondary.main} 0%, ${theme.palette.primary.main} 100%)`
-									},
+											`linear-gradient(90.71deg, ${theme.palette.secondary.main} 0%, ${theme.palette.primary.main} 100%)`,
+                                        color: (theme) => theme.palette.text.primary
+                                        },
 									"&.Mui-selected:hover": {
 										background: (theme) =>
 											`linear-gradient(90.71deg, ${theme.palette.secondary.main} 0%, ${theme.palette.primary.main} 100%)`,
@@ -166,7 +168,12 @@ const CategoryMenu = () => {
 					</Tabs>
 				</Box>
 				{categories.map((category, index) => (
-					<TabPanel category={category} value={value} index={index}></TabPanel>
+					<TabPanel
+						key={index}
+						category={category}
+						value={value}
+						index={index}
+					></TabPanel>
 				))}
 			</Box>
 		</>
