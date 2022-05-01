@@ -12,26 +12,28 @@ const SingleCategoryHomePage = ({ data, value, index, category }) => {
 				))}
 			</CollectionsGrid>
 			<Link href="/explore">
-				<Box
-					sx={{
-						display: "flex",
-						justifyContent: "center",
-						my: 8
-					}}
-				>
-					<Button
-						variant="contained"
-						color="secondary"
+				<a>
+					<Box
 						sx={{
-							px: 10,
-							py: 2,
-							borderRadius: 6,
-							fontWeight: "bold"
+							display: "flex",
+							justifyContent: "center",
+							my: 8
 						}}
 					>
-						More NFTs
-					</Button>
-				</Box>
+						<Button
+							variant="contained"
+							color="secondary"
+							sx={{
+								px: 10,
+								py: 2,
+								borderRadius: 6,
+								fontWeight: "bold"
+							}}
+						>
+							More NFTs
+						</Button>
+					</Box>
+				</a>
 			</Link>
 		</>
 	);
