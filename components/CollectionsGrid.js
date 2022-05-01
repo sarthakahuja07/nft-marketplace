@@ -3,8 +3,7 @@ import { Box } from "@mui/system";
 
 const CollectionsGrid = ({ children }) => {
 	return (
-		<Box sx={{
-        }}>
+		<Box sx={{}}>
 			<Grid container spacing={3}>
 				{children}
 			</Grid>

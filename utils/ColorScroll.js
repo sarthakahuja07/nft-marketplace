@@ -9,7 +9,7 @@ function ColorScroll(props) {
 	const { children } = props;
 	const trigger = useScrollTrigger({
 		disableHysteresis: true,
-		threshold: 536
+		threshold: 1300
 	});
 
 	return React.cloneElement(children, {

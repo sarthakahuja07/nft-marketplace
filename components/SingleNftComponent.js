@@ -1,36 +1,31 @@
 import {
+	Card,
+	CardActionArea,
+	CardMedia,
 	Box,
 	Grid,
-	Typography,
-	Card,
-	CardMedia,
-	CardActions,
 	CardContent,
-	Button,
-	CardActionArea,
-	Avatar
+	Avatar,
+	Typography
 } from "@mui/material";
 import Link from "next/link";
+import ETH from "../public/eth.svg";
+import { ColoredBgButton } from "../styles/styledComponents";
 
-const CollectionItem = ({ id, title, price, creator, image }) => {
+const SingleNftComponent = ({ id, title, price, creator, image }) => {
 	return (
 		<>
 			<Grid item xs={12} sm={6} md={3}>
-				<Link href={`/collections${id}`}>
+				<Link href={`/nft/${id}`}>
 					<a>
 						<Card
 							raised
 							sx={{
 								maxWidth: "300px",
 								mx: "auto",
-								borderRadius: 4,
+								borderRadius: 2,
+								padding: 1.5,
 								position: "relative",
-								border: "1px solid transparent",
-								padding: "0",
-								backgroundOrigin: "border-box",
-								backgroundClip: "content-box , border-box",
-								backgroundImage: (theme) =>
-									`linear-gradient(${theme.palette.bg.main},${theme.palette.bg.main}), radial-gradient(circle at top left, ${theme.palette.secondary.main},${theme.palette.primary.main})`,
 								minWidth: "200px"
 							}}
 						>
@@ -38,24 +33,23 @@ const CollectionItem = ({ id, title, price, creator, image }) => {
 								<CardMedia
 									component="img"
 									height="220"
-									image={image}
+									image="https://i.pravatar.cc/300"
 									alt="nft name"
-									sx={{}}
+									sx={{
+										borderRadius: 2
+									}}
 								/>
 								<CardContent
 									sx={{
+										borderRadius: 2,
 										padding: "0",
-										background: "#252836"
+										background: "transparent"
 									}}
 								>
 									<Box
 										sx={{
-											px: 3,
-											py: 2,
-											borderBottom: "1px solid transparent",
-											borderImage: (theme) =>
-												`linear-gradient(90.71deg, ${theme.palette.secondary.main} 0%, ${theme.palette.primary.main} 100%)`,
-											borderImageSlice: 1
+											px: 2,
+											py: 2
 										}}
 									>
 										<Box
@@ -94,22 +88,33 @@ const CollectionItem = ({ id, title, price, creator, image }) => {
 									<Box
 										sx={{
 											px: 3,
+											py: 1.5,
+											pt: 0,
+											display: "flex",
+											alignItems: "center"
+										}}
+									>
+										<ETH />
+										<Typography
+											variant="body2"
+											fontWeight="bold"
+											component="span"
+											marginLeft={1}
+										>
+											{price}
+										</Typography>
+									</Box>
+									<Box
+										sx={{
+											px: 3,
 											py: 1.5
 										}}
 									>
-										<Typography variant="subtitle2" component="div">
-											Price
-										</Typography>
-										<Typography variant="body2" fontWeight="bold">
-											{price} ETH
-											<Typography
-												variant="subtitle2"
-												component="span"
-												marginLeft={1}
-											>
-												(10.2 USD)
-											</Typography>
-										</Typography>
+										<ColoredBgButton sx={{
+                                            width: "100%",
+                                        }}>
+											Buy Now
+										</ColoredBgButton>
 									</Box>
 								</CardContent>
 							</CardActionArea>
@@ -121,4 +126,4 @@ const CollectionItem = ({ id, title, price, creator, image }) => {
 	);
 };
 
-export default CollectionItem;
+export default SingleNftComponent;

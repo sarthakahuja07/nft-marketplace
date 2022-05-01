@@ -67,7 +67,7 @@ const CollectionsHomePage = () => {
 		<>
 			<Box
 				sx={{
-					my: 10,
+					my: [5,5,10],
 					py: 5
 				}}
 			>
