@@ -35,9 +35,6 @@ const theme = createTheme({
 		MuiCssBaseline: {
 			styleOverrides: {
 				body: {
-					// background: "linear-gradient(90.71deg, #5E83D2 0%,  #F72DB1 110%) ",
-					backgroundRepeat: "no-repeat ",
-					backgroundAttachment: "fixed ",
 					...darkScrollbar()
 				}
 			}

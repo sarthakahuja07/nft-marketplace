@@ -36,20 +36,21 @@ const CollectionItem = ({ id, title, price, creator, image }) => {
 							<CardActionArea>
 								<CardMedia
 									component="img"
-									height="240"
+									height="220"
 									image={image}
 									alt="nft name"
 									sx={{}}
 								/>
 								<CardContent
 									sx={{
-										padding: "0"
+										padding: "0",
+										background: "#252836"
 									}}
 								>
 									<Box
 										sx={{
 											px: 3,
-											py: 1.5,
+											py: 2,
 											borderBottom: "1px solid transparent",
 											borderImage: (theme) =>
 												`linear-gradient(90.71deg, ${theme.palette.secondary.main} 0%, ${theme.palette.primary.main} 100%)`,

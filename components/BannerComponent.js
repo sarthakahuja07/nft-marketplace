@@ -14,7 +14,6 @@ const BannerComponent = () => {
 					px: 8,
 					my: 8,
 					background: "rgba(0,0,0,0.1)",
-					backdropFilter: "blur(4px)"
 				}}
 			>
 				<Typography variant="h3" fontWeight="bold" marginBottom={10}>

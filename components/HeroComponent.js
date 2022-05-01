@@ -108,7 +108,9 @@ const HeroComponent = () => {
 					</Box>
 				</Container>
 			</Box>
-			<Container maxWidth="lg">
+			<Container maxWidth="lg" sx={{
+                mb:[6,8,16]
+            }}>
 				<HeroContent />
 			</Container>
 		</>

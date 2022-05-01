@@ -8,7 +8,6 @@ const Footer = () => {
 		<>
 			<Box
 				sx={{
-					backdropFilter: "blur(4px)",
 					width: "100%",
 					padding: 4,
 					mt: 8,
