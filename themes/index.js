@@ -1,4 +1,5 @@
 import { createTheme } from "@mui/material/styles";
+import darkScrollbar from "@mui/material/darkScrollbar";
 
 const theme = createTheme({
 	palette: {
@@ -8,7 +9,7 @@ const theme = createTheme({
 			paper: "#0A1929"
 		},
 		primary: {
-			main: "#5E83D2",
+			main: "#5E83D2"
 			// light: "#73E0A9"
 		},
 		bg: {
@@ -31,6 +32,16 @@ const theme = createTheme({
 		}
 	},
 	components: {
+		MuiCssBaseline: {
+			styleOverrides: {
+				body: {
+					// background: "linear-gradient(90.71deg, #5E83D2 0%,  #F72DB1 110%) ",
+					backgroundRepeat: "no-repeat ",
+					backgroundAttachment: "fixed ",
+					...darkScrollbar()
+				}
+			}
+		},
 		MuiLink: {
 			styleOverrides: {
 				root: {
@@ -82,10 +93,12 @@ const theme = createTheme({
 			fontSize: "2.5rem"
 		},
 		subtitle1: {
-			fontFamily: "DM Sans"
+			fontFamily: "DM Sans",
+			fontSize: "1.125rem"
 		},
 		subtitle2: {
-			fontFamily: "DM Sans"
+			fontFamily: "DM Sans",
+			fontSize: "0.625rem"
 		},
 		body1: {
 			fontFamily: "DM Sans",
@@ -100,7 +113,7 @@ const theme = createTheme({
 		},
 		caption: {
 			fontFamily: "DM Sans",
-			color: 'rgba(255,255,255,0.5)'
+			color: "rgba(255,255,255,0.5)"
 		},
 		overline: {
 			fontFamily: "DM Sans"

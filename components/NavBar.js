@@ -100,7 +100,7 @@ const NavBar = (props) => {
 					<AppBar
 						position={isHome ? "fixed" : "static"}
 						enableColorOnDark
-						color="background"
+						color="bg"
 						elevation={isHome ? 0 : 3}
 					>
 						<Container maxWidth="lg">

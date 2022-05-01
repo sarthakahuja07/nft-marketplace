@@ -10,7 +10,7 @@ const HeroContent = () => {
 	return (
 		<>
 			<Grid container spacing={12}>
-				<Grid item xs={12} sm={6}>
+				<Grid item xs={12} md={6}>
 					<Box
 						sx={{
 							display: "flex",
@@ -70,7 +70,7 @@ const HeroContent = () => {
 						</Box>
 					</Box>
 				</Grid>
-				<Grid item xs={12} sm={6}>
+				<Grid item xs={12} md={6}>
 					<HomePageCard />
 				</Grid>
 			</Grid>
