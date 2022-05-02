@@ -6,8 +6,9 @@ function ColorScroll(props) {
 	const [offset, setOffset] = useState();
 	useEffect(() => {
 		const heroContent = document.getElementById("hero-content");
-		setOffset(heroContent.offsetHeight + heroContent.offsetTop);
-		console.log(offset);
+		if (heroContent) {
+			setOffset(heroContent.offsetHeight + heroContent.offsetTop);
+		}
 	}, []);
 	const router = useRouter();
 	const isHome = router.pathname === "/";

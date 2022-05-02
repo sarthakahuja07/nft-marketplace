@@ -1,4 +1,4 @@
-import { Button, Typography } from "@mui/material";
+import { Button, Typography, InputBase } from "@mui/material";
 import { styled, alpha } from "@mui/system";
 
 export const StyledTypography = styled(Typography)(({ theme }) => ({
@@ -9,7 +9,7 @@ export const StyledTypography = styled(Typography)(({ theme }) => ({
 }));
 export const ColoredBgButton = styled(Button)(({ theme }) => ({
 	background: `linear-gradient(90.71deg, ${theme.palette.secondary.main} 0%, ${theme.palette.primary.main} 100%)`,
-    color: "white",
+	color: "white"
 }));
 export const ColoredBorderDiv = styled("div")(({ theme }) => ({
 	border: "1px solid transparent",
@@ -19,3 +19,4 @@ export const ColoredBorderDiv = styled("div")(({ theme }) => ({
 	backgroundImage: (theme) =>
 		`linear-gradient(90.71deg, ${theme.palette.secondary.main} 0%, ${theme.palette.primary.main} 100%)`
 }));
+
