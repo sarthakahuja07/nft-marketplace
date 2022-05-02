@@ -40,7 +40,18 @@ const SelectMultipleComponent = ({ options, name }) => {
 	};
 	return (
 		<div>
-			<FormControl sx={{ minWidth: 120, mr: 1 }} variant="outlined">
+			<FormControl
+				sx={{
+					minWidth: 120,
+                    maxWidth: 500,
+					mr: 1,
+					"& .MuiInputBase-input": {
+						padding: "10px 26px 10px 12px",
+						transition: theme.transitions.create(["border-color", "box-shadow"])
+					}
+				}}
+				variant="outlined"
+			>
 				<InputLabel id={`${name}-multiple-input`}>{name}</InputLabel>
 				<Select
 					labelId={`${name}-multiple-input`}
@@ -52,7 +63,14 @@ const SelectMultipleComponent = ({ options, name }) => {
 					renderValue={(selected) => (
 						<Box sx={{ display: "flex", flexWrap: "wrap", gap: 0.5 }}>
 							{selected.map((value) => (
-								<Chip key={value} label={value} />
+								<Chip
+									key={value}
+									label={value}
+									sx={{
+										background: (theme) =>
+											`linear-gradient(90.71deg, ${theme.palette.secondary.main} 0%, ${theme.palette.primary.main} 100%)`
+									}}
+								/>
 							))}
 						</Box>
 					)}

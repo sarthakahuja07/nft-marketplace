@@ -7,7 +7,8 @@ import {
 	CardContent,
 	Avatar,
 	Typography,
-	CardActions
+	CardActions,
+	Button
 } from "@mui/material";
 import Link from "next/link";
 import ETH from "../public/eth.svg";
@@ -88,44 +89,73 @@ const SingleNftComponent = ({ id, title, price, creator, image }) => {
 									</Box>
 									<Box
 										sx={{
+											mt: 1,
 											px: 3,
 											py: 1.5,
-											pt: 0,
-											display: "flex",
-											alignItems: "center"
+											pt: 0
 										}}
 									>
-										<ETH />
+										<Typography variant="subtitle2" color="text.secondary">
+											Price
+										</Typography>
+
 										<Typography
 											variant="body2"
-											fontWeight="bold"
-											component="span"
-											marginLeft={1}
+											sx={{
+												display: "flex",
+												alignItems: "center",
+												gap: 1
+											}}
 										>
-											{price}
+											<ETH />
+											3.00 ETH
+											<Typography
+												variant="subtitle2"
+												component="span"
+												sx={{
+													alignSelf: "end"
+												}}
+											>
+												(10.2 USD)
+											</Typography>
 										</Typography>
 									</Box>
 								</CardContent>
 							</CardActionArea>
 						</a>
 					</Link>
-					<CardActions>
-						<Box
+					<CardActions
+						sx={{
+							display: "flex",
+							justifyContent: "space-between"
+						}}
+					>
+						<ColoredBgButton
+							color="white"
 							sx={{
-								px: 3,
-								py: 1.5,
-								width: "100%"
+								borderRadius: 0,
+								py: 1,
+								px: 2,
+								flex: 1
 							}}
 						>
-							<ColoredBgButton
-								sx={{
-									width: "100%",
-									py: 1.5
-								}}
-							>
-								Buy Now
-							</ColoredBgButton>
-						</Box>
+							Buy Now
+						</ColoredBgButton>
+						<Button
+							color="white"
+							sx={{
+								position: "relative",
+								borderRadius: 0,
+								border: "1px solid transparent",
+								padding: "0",
+								backgroundOrigin: "border-box",
+								backgroundClip: "content-box , border-box",
+								backgroundImage: (theme) =>
+									`linear-gradient(${theme.palette.bg.main},${theme.palette.bg.main}), radial-gradient(circle at top left, ${theme.palette.secondary.main},${theme.palette.primary.main})`
+							}}
+						>
+							<Box sx={{ py: 1, px: 2 }}>View Info</Box>
+						</Button>
 					</CardActions>
 				</Card>
 			</Grid>

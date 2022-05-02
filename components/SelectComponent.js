@@ -13,7 +13,16 @@ const SelectComponent = ({ options, name }) => {
 	};
 	return (
 		<Box sx={{ minWidth: 120 }}>
-			<FormControl fullWidth>
+			<FormControl
+				fullWidth
+				sx={{
+					"& .MuiInputBase-input": {
+						padding: "10px 26px 10px 12px",
+						transition: (theme) =>
+							theme.transitions.create(["border-color", "box-shadow"])
+					}
+				}}
+			>
 				<InputLabel id={`select-label-${name}`}>{name}</InputLabel>
 				<Select
 					labelId={`select-label-${name}`}
