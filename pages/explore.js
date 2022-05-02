@@ -2,9 +2,14 @@ import { ethers } from "ethers";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import Web3Modal from "web3modal";
-import Sidebar from "../components/Sidebar";
 import NFTMarketplace from "../artifacts/contracts/NFTMarketplace.sol/NFTMarketplace.json";
 import { Box, Container, Typography } from "@mui/material";
+import SelectComponent from "../components/SelectComponent";
+import SelectMultipleComponent from "../components/SelectMultipleComponent";
+import CollectionsGrid from "../components/CollectionsGrid";
+import SingleNftComponent from "../components/SingleNftComponent";
+import CollectionItem from "../components/CollectionItem";
+import CategoryMenu from "../components/CategoryMenu";
 
 const marketplaceAddress = process.env.NEXT_PUBLIC_MARKETPLACE_ADDRESS;
 const nftData = {
@@ -12,22 +17,108 @@ const nftData = {
 	price: "3.02",
 	seller: "0x0000000000000000000000000000000000000000",
 	owner: "0x0000000000000000000000000000000000000000",
+	creator: "0x1234",
 	image: "https://i.imgur.com/qhQY9xv.png",
-	name: "Ape Episode #128",
+	title: "Ape Episode #128",
 	description: "this is a NFT"
 };
 
+const collectionData = [
+	{
+		id: 1,
+		title: "World of Women Galaxy",
+		creator: "0x1234567891235",
+		price: 0.218,
+		image: "/sampleCollection.png"
+	},
+	{
+		id: 2,
+		title: "Azuki #958",
+		price: 0.218,
+		creator: "0x1234567891235",
+		image: "/sampleCollection.png"
+	},
+	{
+		id: 3,
+		title: "Yolk Folks",
+		price: 0.218,
+		creator: "0x1234567891235",
+		image: "/sampleCollection.png"
+	},
+	{
+		id: 4,
+		title: "Earth Mooncake",
+		price: 0.218,
+		creator: "0x1234567891235",
+		image: "/sampleCollection.png"
+	},
+	{
+		id: 5,
+		title: "Corrupt Floppy Disk",
+		price: 0.218,
+		creator: "0x1234567891235",
+		image: "/sampleCollection.png"
+	},
+	{
+		id: 6,
+		price: 0.218,
+		creator: "0x1234567891235",
+		title: "Ape Episode #128",
+		image: "/sampleCollection.png"
+	},
+	{
+		id: 7,
+		title: "Neo R #028",
+		price: 0.218,
+		creator: "0x1234567891235",
+		image: "/sampleCollection.png"
+	},
+	{
+		id: 8,
+		price: 0.218,
+		creator: "0x1234567891235",
+		title: "Yact Mutant Academy",
+		image: "/sampleCollection.png"
+	}
+];
+
 export default function Home() {
 	const [nfts, setNfts] = useState([]);
-	const [loadingState, setLoadingState] = useState(false);
-	const [mobileOpen, setMobileOpen] = useState(false);
-	const handleDrawerToggle = () => {
-		setMobileOpen(!mobileOpen);
-	};
+	const [isLoading, setIsLoading] = useState(true);
+	const filterOptions = [
+		"All",
+		"Single",
+		"Collection",
+		"Collection 1",
+		"Collection 2",
+		"Collection 3",
+		"Art",
+		"Gaming",
+		"Photography",
+		"Sports"
+	];
+	const sortOptions = [
+		"Price: Low to High",
+		"Price: High to low",
+		"Name",
+		"Newest",
+		"Oldest"
+	];
+
+	// useEffect(() => {
+	// 	loadNFTs();
+	// }, []);
 
 	useEffect(() => {
-		loadNFTs();
+		//  set NFTs as an array of nftData objects
+		var NFTArray = [];
+		for (var i = 0; i < 10; i++) {
+			NFTArray.push(nftData);
+		}
+		setNfts(NFTArray);
+		setIsLoading(false);
 	}, []);
+
 	async function loadNFTs() {
 		const provider = new ethers.providers.JsonRpcProvider();
 		const contract = new ethers.Contract(
@@ -55,7 +146,7 @@ export default function Home() {
 			})
 		);
 		setNfts(items);
-		setLoadingState(true);
+		setIsLoading(false);
 	}
 	async function buyNft(nft) {
 		const web3Modal = new Web3Modal();
@@ -79,57 +170,82 @@ export default function Home() {
 
 	return (
 		<>
-			<Sidebar
-				mobileOpen={mobileOpen}
-				handleDrawerToggle={handleDrawerToggle}
-			/>
 			<Container maxWidth="lg">
-				{loadingState && nfts.length ? (
+				{isLoading && !nfts.length ? (
 					<h1 className="px-20 py-10 text-3xl">No items in marketplace</h1>
 				) : (
 					<Box
 						sx={{
-							my: 8,
-                            height: "500px",
-                            background : (theme) => theme.palette.primary.main
+							my: 8
 						}}
 					>
-						hi
+						<Box
+							sx={{
+								display: "flex",
+								alignItems: "center",
+								flexDirection: ["column-reverse", "row"],
+								gap: [4, 0],
+								justifyContent: "space-between"
+							}}
+						>
+							<Typography variant="body1" color="inherit">
+								22,133,154 results
+							</Typography>
+							<Box
+								sx={{
+									display: "flex",
+									alignItems: "center"
+								}}
+							>
+								<SelectMultipleComponent
+									name="Filter"
+									options={filterOptions}
+								/>
+								<SelectComponent name="Sort" options={sortOptions} />
+							</Box>
+						</Box>
+						<Box
+							sx={{
+								my: 8
+							}}
+						>
+							<CollectionsGrid>
+								{nfts.map((nft) => (
+									<SingleNftComponent
+										key={nft.tokenId}
+										id={nft.tokenId}
+										{...nft}
+									/>
+								))}
+							</CollectionsGrid>
+						</Box>
+						<Box
+							sx={{
+								my: 8
+							}}
+						>
+							<Typography variant="h3" fontWeight="bold" marginBottom={6}>
+								Explore Collections
+							</Typography>{" "}
+							<CollectionsGrid>
+								{collectionData.map((item) => (
+									<CollectionItem key={item.id} {...item} />
+								))}
+							</CollectionsGrid>
+						</Box>
+						<Box
+							sx={{
+								my: 8
+							}}
+						>
+							<Typography variant="h3" fontWeight="bold" marginBottom={6}>
+								Explore By Categories
+							</Typography>{" "}
+							<CategoryMenu />
+						</Box>
 					</Box>
 				)}
 			</Container>
 		</>
-
-		// <div className="flex justify-center">
-		// 	<div className="px-4" style={{ maxWidth: "1600px" }}>
-		// 		<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 pt-4">
-		// 			{nfts.map((nft, i) => (
-		// 				<div key={i} className="border shadow rounded-xl overflow-hidden">
-		// 					<img src={nft.image} />
-		// 					<div className="p-4">
-		// 						<p
-		// 							style={{ height: "64px" }}
-		// 							className="text-2xl font-semibold"
-		// 						>
-		// 							{nft.name}
-		// 						</p>
-		// 						<div style={{ height: "70px", overflow: "hidden" }}>
-		// 							<p className="text-gray-400">{nft.description}</p>
-		// 						</div>
-		// 					</div>
-		// 					<div className="p-4 bg-black">
-		// 						<p className="text-2xl font-bold text-white">{nft.price} ETH</p>
-		// 						<button
-		// 							className="mt-4 w-full bg-pink-500 text-white font-bold py-2 px-12 rounded"
-		// 							onClick={() => buyNft(nft)}
-		// 						>
-		// 							Buy
-		// 						</button>
-		// 					</div>
-		// 				</div>
-		// 			))}
-		// 		</div>
-		// 	</div>
-		// </div>
 	);
 }
