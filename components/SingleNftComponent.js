@@ -144,7 +144,7 @@ const SingleNftComponent = ({
 								color="white"
 								onClick={() => listNFT(nft)}
 								sx={{
-									borderRadius: 0,
+									borderRadius: 1,
 									py: 1,
 									px: 2,
 									fontWeight: "bold",
@@ -157,7 +157,7 @@ const SingleNftComponent = ({
 							<ColoredBgButton
 								color="white"
 								sx={{
-									borderRadius: 0,
+									borderRadius: 1,
 									py: 1,
 									fontWeight: "bold",
 									px: 2,
@@ -170,7 +170,7 @@ const SingleNftComponent = ({
 							<ColoredBgButton
 								color="white"
 								sx={{
-									borderRadius: 0,
+									borderRadius: 1,
 									py: 1,
 									fontWeight: "bold",
 									px: 2,
@@ -186,7 +186,7 @@ const SingleNftComponent = ({
 								color="white"
 								sx={{
 									position: "relative",
-									borderRadius: 0,
+									borderRadius: 1,
 									border: "1px solid transparent",
 									padding: "0",
 									backgroundOrigin: "border-box",
