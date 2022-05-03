@@ -14,7 +14,16 @@ import Link from "next/link";
 import ETH from "../public/eth.svg";
 import { ColoredBgButton } from "../styles/styledComponents";
 
-const SingleNftComponent = ({ id, title, price, creator, image }) => {
+const SingleNftComponent = ({
+	id,
+	title,
+	price,
+	creator,
+	image,
+	nft,
+	action,
+	listNFT
+}) => {
 	return (
 		<>
 			<Grid item xs={12} sm={6} md={3}>
@@ -130,32 +139,65 @@ const SingleNftComponent = ({ id, title, price, creator, image }) => {
 							justifyContent: "space-between"
 						}}
 					>
-						<ColoredBgButton
-							color="white"
-							sx={{
-								borderRadius: 0,
-								py: 1,
-								px: 2,
-								flex: 1
-							}}
-						>
-							Buy Now
-						</ColoredBgButton>
-						<Button
-							color="white"
-							sx={{
-								position: "relative",
-								borderRadius: 0,
-								border: "1px solid transparent",
-								padding: "0",
-								backgroundOrigin: "border-box",
-								backgroundClip: "content-box , border-box",
-								backgroundImage: (theme) =>
-									`linear-gradient(${theme.palette.bg.main},${theme.palette.bg.main}), radial-gradient(circle at top left, ${theme.palette.secondary.main},${theme.palette.primary.main})`
-							}}
-						>
-							<Box sx={{ py: 1, px: 2 }}>View Info</Box>
-						</Button>
+						{action === "resell" ? (
+							<ColoredBgButton
+								color="white"
+								onClick={() => listNFT(nft)}
+								sx={{
+									borderRadius: 0,
+									py: 1,
+									px: 2,
+									fontWeight: "bold",
+									flex: 1
+								}}
+							>
+								List item
+							</ColoredBgButton>
+						) : action === "view" ? (
+							<ColoredBgButton
+								color="white"
+								sx={{
+									borderRadius: 0,
+									py: 1,
+									fontWeight: "bold",
+									px: 2,
+									flex: 1
+								}}
+							>
+								View item
+							</ColoredBgButton>
+						) : (
+							<ColoredBgButton
+								color="white"
+								sx={{
+									borderRadius: 0,
+									py: 1,
+									fontWeight: "bold",
+									px: 2,
+									flex: 1
+								}}
+							>
+								Buy Now
+							</ColoredBgButton>
+						)}
+
+						{action !== "view" && (
+							<Button
+								color="white"
+								sx={{
+									position: "relative",
+									borderRadius: 0,
+									border: "1px solid transparent",
+									padding: "0",
+									backgroundOrigin: "border-box",
+									backgroundClip: "content-box , border-box",
+									backgroundImage: (theme) =>
+										`linear-gradient(${theme.palette.bg.main},${theme.palette.bg.main}), radial-gradient(circle at top left, ${theme.palette.secondary.main},${theme.palette.primary.main})`
+								}}
+							>
+								<Box sx={{ py: 1, px: 2 }}>View Info</Box>
+							</Button>
+						)}
 					</CardActions>
 				</Card>
 			</Grid>

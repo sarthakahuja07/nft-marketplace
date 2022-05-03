@@ -6,13 +6,37 @@ import Web3Modal from "web3modal";
 const marketplaceAddress = process.env.NEXT_PUBLIC_MARKETPLACE_ADDRESS;
 
 import NFTMarketplace from "../artifacts/contracts/NFTMarketplace.sol/NFTMarketplace.json";
+import { Box, Container, Typography } from "@mui/material";
+import CollectionsGrid from "../components/CollectionsGrid";
+import SingleNftComponent from "../components/SingleNftComponent";
+
+const nftData = {
+	tokenId: "1",
+	price: "3.02",
+	seller: "0x0000000000000000000000000000000000000000",
+	owner: "0x0000000000000000000000000000000000000000",
+	creator: "0x1234",
+	image: "https://i.imgur.com/qhQY9xv.png",
+	title: "Ape Episode #128",
+	description: "this is a NFT"
+};
 
 export default function CreatorDashboard() {
 	const [nfts, setNfts] = useState([]);
-	const [loadingState, setLoadingState] = useState("not-loaded");
+	const [isLoading, setIsLoading] = useState(true);
+	// useEffect(() => {
+	// 	loadNFTs();
+	// }, []);
+
 	useEffect(() => {
-		loadNFTs();
+		var NFTArray = [];
+		for (var i = 0; i < 10; i++) {
+			NFTArray.push(nftData);
+		}
+		setNfts(NFTArray);
+		setIsLoading(false);
 	}, []);
+
 	async function loadNFTs() {
 		const web3Modal = new Web3Modal({
 			network: "mainnet",
@@ -46,27 +70,53 @@ export default function CreatorDashboard() {
 		);
 
 		setNfts(items);
-		setLoadingState("loaded");
+		setIsLoading(true);
 	}
-	if (loadingState === "loaded" && !nfts.length)
+	if (isLoading && !nfts.length)
 		return <h1 className="py-10 px-20 text-3xl">No NFTs listed</h1>;
 	return (
-		<div>
-			<div className="p-4">
-				<h2 className="text-2xl py-2">Items Listed</h2>
-				<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 pt-4">
-					{nfts.map((nft, i) => (
-						<div key={i} className="border shadow rounded-xl overflow-hidden">
-							<img src={nft.image} className="rounded" />
-							<div className="p-4 bg-black">
-								<p className="text-2xl font-bold text-white">
-									Price - {nft.price} Eth
-								</p>
-							</div>
-						</div>
-					))}
-				</div>
-			</div>
-		</div>
+		<Container maxWidth="lg">
+			<Box
+				sx={{
+					my: 8
+				}}
+			>
+				<Typography
+					variant="h3"
+					fontWeight="bolder"
+					sx={{
+						mb: 1
+					}}
+				>
+					MY Listed NFTs
+				</Typography>
+				<Typography variant="h6" color="secondary">
+					0x12345678
+				</Typography>
+			</Box>
+			<CollectionsGrid>
+				{nfts.map((nft) => (
+					<SingleNftComponent action={'view'} key={nft.tokenId} id={nft.tokenId} {...nft} />
+				))}
+			</CollectionsGrid>
+		</Container>
+
+		// <div>
+		// 	<div className="p-4">
+		// 		<h2 className="text-2xl py-2">Items Listed</h2>
+		// 		<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 pt-4">
+		// 			{nfts.map((nft, i) => (
+		// 				<div key={i} className="border shadow rounded-xl overflow-hidden">
+		// 					<img src={nft.image} className="rounded" />
+		// 					<div className="p-4 bg-black">
+		// 						<p className="text-2xl font-bold text-white">
+		// 							Price - {nft.price} Eth
+		// 						</p>
+		// 					</div>
+		// 				</div>
+		// 			))}
+		// 		</div>
+		// 	</div>
+		// </div>
 	);
 }

@@ -3,10 +3,12 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import Web3Modal from "web3modal";
 import { useRouter } from "next/router";
-const marketplaceAddress = process.env.NEXT_PUBLIC_MARKETPLACE_ADDRESS;
-
 import NFTMarketplace from "../artifacts/contracts/NFTMarketplace.sol/NFTMarketplace.json";
+import CollectionsGrid from "../components/CollectionsGrid";
+import SingleNftComponent from "../components/SingleNftComponent";
+import { Box, Container, Typography } from "@mui/material";
 
+const marketplaceAddress = process.env.NEXT_PUBLIC_MARKETPLACE_ADDRESS;
 const nftData = {
 	tokenId: "1",
 	price: "3.02",
@@ -20,13 +22,12 @@ const nftData = {
 
 export default function MyAssets() {
 	const [nfts, setNfts] = useState([]);
-	const [loadingState, setLoadingState] = useState("not-loaded");
+	const [isLoading, setIsLoading] = useState(true);
 	const router = useRouter();
 	// useEffect(() => {
 	// 	loadNFTs();
 	// }, []);
 	useEffect(() => {
-		//  set NFTs as an array of nftData objects
 		var NFTArray = [];
 		for (var i = 0; i < 10; i++) {
 			NFTArray.push(nftData);
@@ -68,35 +69,68 @@ export default function MyAssets() {
 			})
 		);
 		setNfts(items);
-		setLoadingState("loaded");
+		setIsLoading(false);
 	}
 	function listNFT(nft) {
 		router.push(`/resell-nft?id=${nft.tokenId}&tokenURI=${nft.tokenURI}`);
 	}
-	if (loadingState === "loaded" && !nfts.length)
+	if (isLoading && !nfts.length)
 		return <h1 className="py-10 px-20 text-3xl">No NFTs owned</h1>;
 	return (
-		<div className="flex justify-center">
-			<div className="p-4">
-				<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 pt-4">
-					{nfts.map((nft, i) => (
-						<div key={i} className="border shadow rounded-xl overflow-hidden">
-							<img src={nft.image} className="rounded" />
-							<div className="p-4 bg-black">
-								<p className="text-2xl font-bold text-white">
-									Price - {nft.price} Eth
-								</p>
-								<button
-									className="mt-4 w-full bg-pink-500 text-white font-bold py-2 px-12 rounded"
-									onClick={() => listNFT(nft)}
-								>
-									List
-								</button>
-							</div>
-						</div>
-					))}
-				</div>
-			</div>
-		</div>
+		<Container maxWidth="lg">
+			<Box
+				sx={{
+					my: 8
+				}}
+			>
+				<Typography
+					variant="h3"
+					fontWeight="bolder"
+					sx={{
+						mb: 1
+					}}
+				>
+					MY Owned NFTs
+				</Typography>
+				<Typography variant="h6" color="secondary">
+					0x12345678
+				</Typography>
+			</Box>
+			<CollectionsGrid>
+				{nfts.map((nft) => (
+					<SingleNftComponent
+						nft={nft}
+						listNFT={listNFT}
+						action={"resell"}
+						key={nft.tokenId}
+						id={nft.tokenId}
+						{...nft}
+					/>
+				))}
+			</CollectionsGrid>
+		</Container>
+
+		// <div className="flex justify-center">
+		// 	<div className="p-4">
+		// 		<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 pt-4">
+		// 			{nfts.map((nft, i) => (
+		// 				<div key={i} className="border shadow rounded-xl overflow-hidden">
+		// 					<img src={nft.image} className="rounded" />
+		// 					<div className="p-4 bg-black">
+		// 						<p className="text-2xl font-bold text-white">
+		// 							Price - {nft.price} Eth
+		// 						</p>
+		// 						<button
+		// 							className="mt-4 w-full bg-pink-500 text-white font-bold py-2 px-12 rounded"
+		// 							onClick={() => listNFT(nft)}
+		// 						>
+		// 							List
+		// 						</button>
+		// 					</div>
+		// 				</div>
+		// 			))}
+		// 		</div>
+		// 	</div>
+		// </div>
 	);
 }
