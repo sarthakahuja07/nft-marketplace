@@ -36,8 +36,8 @@ const HeroComponent = () => {
 						right: "23.82%",
 						top: "9.91%",
 						bottom: "67.62%",
-						background: "#F72DB1",
-						opacity: "0.8",
+						background: "#5E83D2",
+						opacity: "1",
 						filter: " blur(509px)"
 					}}
 				></Box>
@@ -48,8 +48,8 @@ const HeroComponent = () => {
 						right: "3.82%",
 						top: "-0.93%",
 						bottom: "81.83%",
-						background: "#5E83D2",
-						opacity: "1",
+						background: "#F72DB1",
+						opacity: "0.2",
 						filter: " blur(509px)"
 					}}
 				></Box>

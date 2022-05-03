@@ -4,13 +4,13 @@ import { useRouter } from "next/router";
 
 function ColorScroll(props) {
 	const [offset, setOffset] = useState();
+	const router = useRouter();
 	useEffect(() => {
 		const heroContent = document.getElementById("hero-content");
 		if (heroContent) {
 			setOffset(heroContent.offsetHeight + heroContent.offsetTop);
 		}
-	}, []);
-	const router = useRouter();
+	}, [router.pathname]);
 	const isHome = router.pathname === "/";
 
 	const { children } = props;

@@ -9,7 +9,7 @@ const theme = createTheme({
 			paper: "#0A1929"
 		},
 		primary: {
-			main: "#5E83D2"
+			main: "#2081e2"
 			// light: "#73E0A9"
 		},
 		bg: {

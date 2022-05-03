@@ -1,4 +1,3 @@
-/* pages/my-nfts.js */
 import { ethers } from "ethers";
 import { useEffect, useState } from "react";
 import axios from "axios";
@@ -6,16 +5,36 @@ import Web3Modal from "web3modal";
 import { useRouter } from "next/router";
 const marketplaceAddress = process.env.NEXT_PUBLIC_MARKETPLACE_ADDRESS;
 
-
 import NFTMarketplace from "../artifacts/contracts/NFTMarketplace.sol/NFTMarketplace.json";
+
+const nftData = {
+	tokenId: "1",
+	price: "3.02",
+	seller: "0x0000000000000000000000000000000000000000",
+	owner: "0x0000000000000000000000000000000000000000",
+	creator: "0x1234",
+	image: "https://i.imgur.com/qhQY9xv.png",
+	title: "Ape Episode #128",
+	description: "this is a NFT"
+};
 
 export default function MyAssets() {
 	const [nfts, setNfts] = useState([]);
 	const [loadingState, setLoadingState] = useState("not-loaded");
 	const router = useRouter();
+	// useEffect(() => {
+	// 	loadNFTs();
+	// }, []);
 	useEffect(() => {
-		loadNFTs();
+		//  set NFTs as an array of nftData objects
+		var NFTArray = [];
+		for (var i = 0; i < 10; i++) {
+			NFTArray.push(nftData);
+		}
+		setNfts(NFTArray);
+		setIsLoading(false);
 	}, []);
+
 	async function loadNFTs() {
 		const web3Modal = new Web3Modal({
 			network: "mainnet",
