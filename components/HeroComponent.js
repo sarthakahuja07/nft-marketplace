@@ -102,7 +102,7 @@ const HeroComponent = () => {
 									</Button>
 								</a>
 							</Link>
-							<Link href="/create-nft">
+							<Link href="/create">
 								<a>
 									<Button
 										color="white"

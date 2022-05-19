@@ -154,18 +154,20 @@ const SingleNftComponent = ({
 								List item
 							</ColoredBgButton>
 						) : action === "view" ? (
-							<ColoredBgButton
-								color="white"
-								sx={{
-									borderRadius: 1,
-									py: 1,
-									fontWeight: "bold",
-									px: 2,
-									flex: 1
-								}}
-							>
-								View item
-							</ColoredBgButton>
+							<Link href="/nft/1">
+								<ColoredBgButton
+									color="white"
+									sx={{
+										borderRadius: 1,
+										py: 1,
+										fontWeight: "bold",
+										px: 2,
+										flex: 1
+									}}
+								>
+									View item
+								</ColoredBgButton>
+							</Link>
 						) : (
 							<ColoredBgButton
 								color="white"
@@ -195,7 +197,9 @@ const SingleNftComponent = ({
 										`linear-gradient(${theme.palette.bg.main},${theme.palette.bg.main}), radial-gradient(circle at top left, ${theme.palette.secondary.main},${theme.palette.primary.main})`
 								}}
 							>
-								<Box sx={{ py: 1, px: 2 }}>View Info</Box>
+								<Box sx={{ py: 1, px: 2 }}>
+									<Link href="nft/1">View Info</Link>
+								</Box>
 							</Button>
 						)}
 					</CardActions>

@@ -29,7 +29,7 @@ const FooterLinks = () => {
 					Market Place
 				</Typography>
 				<Stack direction="column" justifyContent="center">
-					<Link href="/">
+					<Link href="/explore">
 						<a>
 							<Typography
 								variant="body2"
@@ -41,7 +41,7 @@ const FooterLinks = () => {
 							</Typography>
 						</a>
 					</Link>
-					<Link href="/">
+					<Link href="/categories/art">
 						<a>
 							<Typography
 								mb={1}
@@ -53,7 +53,7 @@ const FooterLinks = () => {
 							</Typography>
 						</a>
 					</Link>
-					<Link href="/">
+					<Link href="/categories/sports">
 						<a>
 							<Typography
 								mb={1}
@@ -66,7 +66,7 @@ const FooterLinks = () => {
 						</a>
 					</Link>
 
-					<Link href="/">
+					<Link href="/categories/music">
 						<a>
 							<Typography
 								mb={1}
@@ -78,7 +78,7 @@ const FooterLinks = () => {
 							</Typography>
 						</a>
 					</Link>
-					<Link href="/">
+					<Link href="/categories/anime">
 						<a>
 							<Typography
 								mb={1}
@@ -90,7 +90,7 @@ const FooterLinks = () => {
 							</Typography>
 						</a>
 					</Link>
-					<Link href="/">
+					<Link href="/categories/games">
 						<a>
 							<Typography
 								variant="body2"
@@ -102,7 +102,7 @@ const FooterLinks = () => {
 							</Typography>
 						</a>
 					</Link>
-					<Link href="/">
+					<Link href="/categories/photography">
 						<a>
 							<Typography
 								mb={1}
@@ -114,7 +114,7 @@ const FooterLinks = () => {
 							</Typography>
 						</a>
 					</Link>
-					<Link href="/">
+					<Link href="/categories/trading_cards">
 						<a>
 							<Typography
 								mb={1}
@@ -144,7 +144,7 @@ const FooterLinks = () => {
 					Quick Links
 				</Typography>
 				<Stack direction="column" justifyContent="center">
-					<Link href="/">
+					<Link href="/explore">
 						<a>
 							<Typography
 								variant="body2"
@@ -156,7 +156,7 @@ const FooterLinks = () => {
 							</Typography>
 						</a>
 					</Link>
-					<Link href="/">
+					<Link href="/create">
 						<a>
 							<Typography
 								mb={1}
@@ -168,7 +168,7 @@ const FooterLinks = () => {
 							</Typography>
 						</a>
 					</Link>
-					<Link href="/">
+					<Link href="/dashboard">
 						<a>
 							<Typography
 								mb={1}
@@ -181,7 +181,7 @@ const FooterLinks = () => {
 						</a>
 					</Link>
 
-					<Link href="/">
+					<Link href="/my-nfts">
 						<a>
 							<Typography
 								mb={1}
@@ -193,7 +193,7 @@ const FooterLinks = () => {
 							</Typography>
 						</a>
 					</Link>
-					<Link href="/">
+					<Link href="/about">
 						<a>
 							<Typography
 								mb={1}
@@ -205,7 +205,7 @@ const FooterLinks = () => {
 							</Typography>
 						</a>
 					</Link>
-					<Link href="/">
+					<Link href="/profile">
 						<a>
 							<Typography
 								variant="body2"
@@ -217,7 +217,7 @@ const FooterLinks = () => {
 							</Typography>
 						</a>
 					</Link>
-					<Link href="/">
+					<Link href="/blog">
 						<a>
 							<Typography
 								mb={1}

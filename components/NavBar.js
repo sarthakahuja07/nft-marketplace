@@ -25,7 +25,11 @@ import MenuIcon from "@mui/icons-material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 
 const Offset = styled("div")(({ theme }) => theme.mixins.toolbar);
-const pages = ["Explore", "Create", "Dashboard"];
+const pages = [
+	{ name: "Explore", link: "explore" },
+	{ name: "Create", link: "create" },
+	{ name: "Dashboard", link: "dashboard" }
+];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
 const Search = styled("div")(({ theme }) => ({
@@ -175,29 +179,31 @@ const NavBar = (props) => {
 									>
 										{pages.map((page) => {
 											return (
-												<MenuItem key={page} onClick={handleCloseNavMenu}>
+												<MenuItem key={page.name} onClick={handleCloseNavMenu}>
 													<Typography
 														color={
-															router.asPath == "/" + page.toLowerCase()
+															router.asPath == "/" + page.name.toLowerCase()
 																? "secondary"
 																: "white"
 														}
 														textAlign="center"
 													>
-														{page}
+														{page.name}
 													</Typography>
 												</MenuItem>
 											);
 										})}
 										<MenuItem key={"account"} onClick={handleCloseNavMenu}>
-											<Typography
-												color={
-													router.asPath == "/account" ? "secondary" : "white"
-												}
-												textAlign="center"
-											>
-												Account
-											</Typography>
+											<Link href="my-nfts">
+												<Typography
+													color={
+														router.asPath == "/account" ? "secondary" : "white"
+													}
+													textAlign="center"
+												>
+													Account
+												</Typography>
+											</Link>
 										</MenuItem>
 									</Menu>
 								</Box>
@@ -220,18 +226,20 @@ const NavBar = (props) => {
 
 								<Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
 									{pages.map((page) => (
-										<Button
-											key={page}
-											onClick={handleCloseNavMenu}
-											color={
-												router.asPath == "/" + page.toLowerCase()
-													? "secondary"
-													: "white"
-											}
-											sx={{ my: 2, display: "block", fontWeight: "bold" }}
-										>
-											{page}
-										</Button>
+										<Link href={page.link}>
+											<Button
+												key={page.name}
+												onClick={handleCloseNavMenu}
+												color={
+													router.asPath == "/" + page.name.toLowerCase()
+														? "secondary"
+														: "white"
+												}
+												sx={{ my: 2, display: "block", fontWeight: "bold" }}
+											>
+												{page.name}
+											</Button>
+										</Link>
 									))}
 									<Button
 										color="white"
@@ -250,7 +258,9 @@ const NavBar = (props) => {
 											backgroundImage: `linear-gradient(${theme.palette.bg.main},${theme.palette.bg.main}), radial-gradient(circle at top left, ${theme.palette.secondary.main},${theme.palette.primary.main})`
 										}}
 									>
-										<Box sx={{ padding: 0.5, paddingX: 1 }}>Account</Box>
+										<Box sx={{ padding: 0.5, paddingX: 1 }}>
+											<Link href="my-nfts">Account</Link>
+										</Box>
 									</Button>
 								</Box>
 
